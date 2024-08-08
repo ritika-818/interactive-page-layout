@@ -53,6 +53,9 @@ inp.addEventListener("input", (e) => {
   const filterArr = arr.filter((item) => {
     return item.name.toLowerCase().includes(val.toLowerCase());
   });
+  if(filterArr.length === 0){
+    cardContainer.innerHTML = "No Products available here!";
+  }
   onLoad(filterArr);
 });
 function loadFunc() {
