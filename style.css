@@ -38,6 +38,15 @@ body .card-container .card {
   border-radius: 10px;
   padding: 13px;
   background-color: whitesmoke;
+  transition: scale 0.3s ease;
+}
+body .card-container .card img {
+  margin-bottom: 20px;
+}
+body .card-container .card img:hover {
+  overflow: hidden;
+  cursor: pointer;
+  scale: 1.07;
 }
 body .card-container .card .category {
   width: 80px;
