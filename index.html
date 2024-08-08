@@ -4,8 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <h1>
+        Interactive Product Gallery
+    </h1>
+    <input class="inp" id="inp" placeholder="search items">
+    <div class="btn-container" id="btn-container">
+        <button class="btn" id="all" onclick="onIdCLick('all')">All</button>
+        <button class="btn" id="electronic" onclick="onIdCLick('electronics')">Electronics</button>
+        <button class="btn" id="sports" onclick="onIdCLick('sports')">Sports</button>
+        <button class="btn" id="home" onclick="onIdCLick('home')">Home</button>
+        <button class="btn" id="books" onclick="onIdCLick('books')">Books</button>
+        <div class="card-container" id="card-container"></div>
+    </div>
+    <script src="index.js"></script>
 </body>
 </html>
