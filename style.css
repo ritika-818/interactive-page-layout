@@ -4,7 +4,8 @@ body {
   padding-right: 40px;
 }
 body .inp {
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
   height: 30px;
   font-size: large;
   margin-bottom: 20px;
@@ -16,7 +17,8 @@ body .btn-container {
   margin-bottom: 20px;
 }
 body .btn-container .btn {
-  width: 80px;
+  width: 100%;
+  max-width: 80px;
   height: 30px;
   background-color: rgb(46, 126, 46);
   color: white;
@@ -25,10 +27,25 @@ body .btn-container .btn {
   cursor: pointer;
 }
 body .card-container {
-  width: 80%;
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
+}
+@media (max-width: 1024px) {
+  body .card-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  body .card-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  body .card-container {
+    grid-template-columns: 1fr;
+  }
 }
 body .card-container .card {
   display: flex;
@@ -38,12 +55,12 @@ body .card-container .card {
   padding: 13px;
   gap: 20px;
   background-color: whitesmoke;
-  transition: scale 0.3s ease;
+  transition: transform 0.3s ease;
 }
 body .card-container .card img:hover {
   overflow: hidden;
   cursor: pointer;
-  scale: 1.07;
+  transform: scale(1.07);
   border-radius: 10px;
 }
 body .card-container .card .category {
