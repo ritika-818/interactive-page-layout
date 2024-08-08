@@ -5,7 +5,6 @@ const cardContainer = document.getElementById('card-container');
 const allBtn = document.getElementById('all');
 allBtn.addEventListener('click',()=>onIdCLick('all'));
 function onIdCLick(val){
-    console.log(val);
     cardContainer.innerHTML='';
     const filterArr = arr.filter((item)=>item.category.toLowerCase()===val.toLowerCase());
     if(val!=='all')onLoad(filterArr);
