@@ -1,3 +1,5 @@
+const btnContainer = document.getElementById('btn-container');
+const cardContainer = document.getElementById('card-container');
 const arr = [
     { id: 1, name: "Laptop", price: 999.99, category: "Electronics", image: "https://via.placeholder.com/250x200?text=Laptop" },
     { id: 2, name: "Smartphone", price: 699.99, category: "Electronics", image: "https://via.placeholder.com/250x200?text=Smartphone" },
@@ -8,7 +10,9 @@ const arr = [
     { id: 7, name: "Blender", price: 49.99, category: "Home", image: "https://via.placeholder.com/250x200?text=Blender" },
     { id: 8, name: "Novel", price: 14.99, category: "Books", image: "https://via.placeholder.com/250x200?text=Novel" },
 ];
+const categorySet = new Set();
 function onIdCLick(val){
+    console.log(val);
     cardContainer.innerHTML='';
     const filterArr = arr.filter((item)=>item.category.toLowerCase()===val.toLowerCase());
     if(val!=='all')onLoad(filterArr);
@@ -34,9 +38,20 @@ function onLoad(array){
         category.classList.add('category');
         card.appendChild(category);
         cardContainer.appendChild(card);
+        categorySet.add(item.category);
     });
 }
 
+function addbtn(){
+    for(const x of categorySet){
+        const btn = document.createElement('button');
+        btn.textContent = x;
+        btn.classList.add('btn');
+        btn.setAttribute('id',x);
+        btn.addEventListener('click',()=>onIdCLick(x));
+        btnContainer.appendChild(btn);
+    }
+}
 const inp = document.getElementById('inp');
     inp.addEventListener('input',(e)=>{
         const val= e.target.value;
@@ -45,7 +60,7 @@ const inp = document.getElementById('inp');
             return item.name.toLowerCase().includes(val.toLowerCase());
         })
         filterArr.map((item)=>{
-            const card = document.createElement('div');
+        const card = document.createElement('div');
         card.classList.add('card');
         const img = document.createElement('img');
         img.setAttribute('src',item.image);
@@ -65,8 +80,10 @@ const inp = document.getElementById('inp');
         cardContainer.appendChild(card);
         })
         inp.textContent='';
-    })
+    });
 
-
-const cardContainer = document.getElementById('card-container');
-window.addEventListener('load',onLoad(arr));
+function loadFunc(){
+    onLoad(arr);
+    addbtn();
+}
+window.addEventListener('load',loadFunc);
