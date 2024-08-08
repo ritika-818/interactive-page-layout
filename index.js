@@ -23,9 +23,11 @@ function onLoad(array){
         card.appendChild(img);
         const name = document.createElement('div');
         name.textContent = item.name;
+        name.style.fontWeight= 'bold';
         card.appendChild(name);
         const price = document.createElement('div');
-        price.textContent = item.price;
+        price.textContent = '$'+item.price;
+        price.style.color='red';
         card.appendChild(price);
         const category = document.createElement('div');
         category.textContent = item.category;
@@ -40,7 +42,7 @@ const inp = document.getElementById('inp');
         const val= e.target.value;
         cardContainer.innerHTML='';
         const filterArr = arr.filter((item)=>{
-            return item.category.toLowerCase().includes(val.toLowerCase());
+            return item.name.toLowerCase().includes(val.toLowerCase());
         })
         filterArr.map((item)=>{
             const card = document.createElement('div');
@@ -50,9 +52,11 @@ const inp = document.getElementById('inp');
         card.appendChild(img);
         const name = document.createElement('div');
         name.textContent = item.name;
+        name.style.fontWeight= 'bold';
         card.appendChild(name);
         const price = document.createElement('div');
-        price.textContent = item.price;
+        price.textContent = '$'+item.price;
+        price.style.color='red';
         card.appendChild(price);
         const category = document.createElement('div');
         category.textContent = item.category;
